@@ -34,7 +34,7 @@
         </div>
       </div>
       <div class="card-body">
-        <table class="table table-sm table-striped" id="tabla-cursos">
+        <table class="table table-sm table-striped" id="tabla-personas">
           <colgroup>
             <col width = "3%"> <!--id-->
             <col width = "10%"> <!--nombres-->
@@ -88,7 +88,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form id="registro-persona">
+          <form id="formulario-personas">
             <div class="mb-3">
               <label for="nombres" class="form-label">Nombres:</label>
               <input type="text" class="form-control form-control-sm" id="nombres">
@@ -139,13 +139,13 @@
                 <label for="discapacidad" class="form-label">¿Presenta alguna discapacidad?</label>
                 <select id="discapacidad" class="form-select form-select-sm">
                   <option value="">Seleccione</option>
-                  <option value="Y">Si</option>
+                  <option value="D">Si</option>
                   <option value="N">No</option>
                 </select>
               </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary btn-sm" id="guardar-curso">Guardar</button>
+          <button type="button" class="btn btn-primary btn-sm" id="guardar-persona">Guardar</button>
         </div>
       </div>
     </div>
@@ -171,14 +171,14 @@
   <script>
     $(document).ready(function (){
 
-      function mostrarCursos(){
+      function mostrarPersonas(){
         $.ajax({
           url: '../controllers/persona.controller.php',
           type: 'POST',
           data: {operacion: 'listar'},
           dataType: 'text',
           success:function(result){
-            $("#tabla-cursos tbody").html(result);
+            $("#tabla-personas tbody").html(result);
           }
         });
       }
@@ -190,23 +190,28 @@
               url: '../controllers/persona.controller.php',
               type: 'POST',
               data: {
-                operacion     : 'registrar',
-                nombrecurso   : $("#nombrecurso").val(),
-                especialidad  : $("#especialidad").val(),
-                complejidad   : $("#complejidad").val(),
-                fechainicio   : $("#fechainicio").val(),
-                precio        : $("#precio").val()
+                operacion          : 'registrar',
+                nombres            : $("#nombres").val(),
+                apellidos          : $("#apellidos").val(),
+                dni                : $("#dni").val(),
+                fecha_nacimiento   : $("#fecha_nacimiento").val(),
+                direccion          : $("#direccion").val(),
+                ocupacion          : $("#ocupacion").val(),
+                telefono           : $("#telefono").val(),
+                email              : $("#email").val(),
+                estado_civil       : $("#estado_civil").val(),
+                discapacidad       : $("#discapacidad").val()
               },
               success: function(result){
                 if (result == ""){
                   //Reiniciar el formulario
-                  $("#formulario-cursos")[0].reset();
+                  $("#formulario-personas")[0].reset();
 
                   //Actualizar la tabla
-                  mostrarCursos();
+                  mostrarPersonas();
 
                   //Cerrar el modal
-                  $("#modal-registro-cursos").modal('hide');
+                  $("#modal-registro-persona").modal('hide');
 
                 }
               }
@@ -217,12 +222,12 @@
 
 
       // Eventos
-      $("#guardar-curso").click(registrarCurso);
+      $("#guardar-persona").click(registrarPersona);
 
       //Al pulsar clic sobre el botón ROJO, se elimine el registro
       // Detectaremos eventos de los objetos creados de manera Asincrona en ...
       $("#tabla-cursos tbody").on("click", ".eliminar", function(){
-        const idcursoEliminar = $(this).data("idcurso");
+        const idcursoEliminar = $(this).data("idpersona");
         if (confirm("¿Está seguro de proceder?")){
           $.ajax({
             url: '../controllers/persona.controller.php',
@@ -241,7 +246,7 @@
       });
 
       // Ejecución automática
-      mostrarCursos();
+      mostrarPersonas();
 
     });
   </script>

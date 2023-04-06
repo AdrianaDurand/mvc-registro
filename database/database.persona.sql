@@ -53,3 +53,24 @@ WHERE estado = '1'
 ORDER BY idpersona ASC;
 END $$
 CALL spu_listar_personas();
+
+-- PROCEDIMIENTO ALMACENADO PARA REGISTRAR PERSONA --
+DELIMITER $$
+CREATE PROCEDURE spu_registrar_persona
+(
+IN _nombres		VARCHAR(50),
+IN _apellidos		VARCHAR(50),
+IN _dni			CHAR(8),
+IN _fecha_nacimiento	DATE,
+IN _direccion		VARCHAR(60),
+IN _ocupacion		VARCHAR(70),
+IN _telefono		CHAR(9),
+IN _email		VARCHAR(120),
+IN _estado_civil	CHAR(1),
+IN _discapacidad	CHAR(1)
+)
+BEGIN
+	INSERT INTO persona(nombres, apellidos, dni, fecha_nacimiento, direccion, ocupacion, telefono, email, estado_civil, discapacidad)
+	VALUES (_nombres, _apellidos, _dni, _fecha_nacimiento, _direccion, _ocupacion, _telefono, _email, _estado_civil, _discapacidad);
+END$$ 
+CALL spu_registrar_persona('Mariana','Castilla Lévano','90234019','2000-06-21','Jorge Basadre 498, Lima 27', 'Estudiante', '988021119', 'mariana@gmail.com', 'S','N');
