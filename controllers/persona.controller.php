@@ -48,15 +48,20 @@ if (isset($_POST['operacion'])){
     // Paso1: Recoger los datos que nos envía la vista (FORM, utilizando AJAX)
     // $_POST : Esto es lo que se nos envía desde FORM
     $datosForm = [
-      "nombrecurso" => $_POST['nombrecurso'],
-      "especialidad" => $_POST['especialidad'],
-      "complejidad" => $_POST['complejidad'],
-      "fechainicio" => $_POST['fechainicio'],
-      "precio" => $_POST['precio']
+      "nombres"=> $_POST['nombres'],
+      "apellidos"=> $_POST['apellidos'],
+      "dni"=> $_POST['dni'],
+      "fecha_nacimiento"=> $_POST['fecha_nacimiento'],
+      "direccion"=> $_POST['direccion'],
+      "ocupacion"=> $_POST['ocupacion'],
+      "telefono"=> $_POST['telefono'],
+      "email"=> $_POST['email'],
+      "estado_civil"=> $_POST['estado_civil'],
+      "discapacidad"=> $_POST['discapacidad']
     ];
 
     // Paso2: Enviar el arreglo como parametro del metodo registrar
-    $persona->registrarCurso($datosForm);
+    $persona->registrarPersona($datosForm);
 }
 
   if($_POST['operacion'] == 'eliminar'){

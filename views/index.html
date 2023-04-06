@@ -173,7 +173,7 @@
 
       function mostrarCursos(){
         $.ajax({
-          url: '../controllers/curso.controller.php',
+          url: '../controllers/persona.controller.php',
           type: 'POST',
           data: {operacion: 'listar'},
           dataType: 'text',
@@ -183,11 +183,11 @@
         });
       }
 
-      function registrarCurso(){
+      function registrarPersona(){
           //Pendiente de validar...
-          if(confirm("¿Estás seguro de registrar este nuevo curso?")){
+          if(confirm("¿Estás seguro de guardas estos datos?")){
             $.ajax({
-              url: '../controllers/curso.controller.php',
+              url: '../controllers/persona.controller.php',
               type: 'POST',
               data: {
                 operacion     : 'registrar',
@@ -225,7 +225,7 @@
         const idcursoEliminar = $(this).data("idcurso");
         if (confirm("¿Está seguro de proceder?")){
           $.ajax({
-            url: '../controllers/curso.controller.php',
+            url: '../controllers/persona.controller.php',
             type: 'POST',
             data: {
               operacion   : 'eliminar',
