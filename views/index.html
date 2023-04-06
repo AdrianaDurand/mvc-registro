@@ -29,7 +29,7 @@
             <strong>REGISTRO DE PERSONAS</strong>
           </div>
           <div class="col-md-6 text-end">
-            <button class="btn btn-primary btn-sm text-light" id="abrir-modal" data-bs-toggle="modal" data-bs-target="#modal-registro-cursos"><i class="bi bi-person-fill-add"></i> Agregar persona</button>
+            <button class="btn btn-primary btn-sm text-light" id="abrir-modal" data-bs-toggle="modal" data-bs-target="#modal-registro-persona"><i class="bi bi-person-fill-add"></i> Agregar persona</button>
           </div>
         </div>
       </div>
@@ -78,7 +78,7 @@
     
   <!-- Modal Body -->
   <!-- si desea cerrar haciendo clic fuera del modal, elimine el último punto final: data-bs-backdrop and data-bs-keyboard -->
-  <div class="modal fade" id="modal-registro-cursos" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+  <div class="modal fade" id="modal-registro-persona" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header bg-primary bg-opacity-50 text-light">
@@ -86,39 +86,56 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form id="formulario-cursos">
+          <form id="registro-persona">
             <div class="mb-3">
-              <label for="nombrecurso" class="form-label">Nombre curso</label>
-              <input type="text" class="form-control form-control-sm" id="nombrecurso">
+              <label for="nombres" class="form-label">Nombres:</label>
+              <input type="text" class="form-control form-control-sm" id="nombres">
             </div>
             <div class="mb-3">
-              <label for="especialidad" class="form-label">Especialidad</label>
-              <select id="especialidad" class="form-select form-select-sm">
+                <label for="apellidos" class="form-label">Apellidos:</label>
+                <input type="text" class="form-control form-control-sm" id="apellidos">
+            </div>
+            <div class="mb-3">
+                <label for="dni" class="form-label">Digite su DNI:</label>
+                <input type="text" class="form-control form-control-sm" id="dni">
+            </div>
+            <div class="mb-3">
+                <label for="fecha_nacimiento" class="form-label">Ingrese su fecha de nacimiento:</label>
+                <input type="date" class="form-control form-control-sm" id="fecha_nacimiento">
+            </div>
+            <div class="mb-3">
+                <label for="direccion" class="form-label">Digite su dirección:</label>
+                <input type="text" class="form-control form-control-sm" id="direccion">
+            </div>
+            <div class="mb-3">
+                <label for="ocupacion" class="form-label">Ocupación:</label>
+                <input type="text" class="form-control form-control-sm" id="ocupacion">
+            </div>
+            <div class="mb-3">
+                <label for="telefono" class="form-label">Ingrese su teléfono:</label>
+                <input type="text" class="form-control form-control-sm" id="telefono">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Digite su dirección de E-mail:</label>
+                <input type="text" class="form-control form-control-sm" id="email">
+            </div>
+            <div class="mb-3">
+              <label for="estado_civil" class="form-label">Estado Civil</label>
+              <select id="estado_civil" class="form-select form-select-sm">
                 <option value="">Seleccione</option>
-                <option value="ETI">ETI</option>
-                <option value="Administración">Administración</option>
-                <option value="Mecánica">Mecánica</option>
+                <option value="S">Soltero(a)</option>
+                <option value="C">Casado(a)</option>
+                <option value="V">Viudo(a)</option>
               </select>
             </div>
             <div class="mb-3">
-              <label for="complejidad" class="form-label">Complejidad</label>
-              <select id="complejidad" class="form-select form-select-sm">
-                <option value="">Seleccione</option>
-                <option value="B">Básico</option>
-                <option value="M">Medio</option>
-                <option value="A">Avanzado</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label for="fechainicio" class="form-label">Fecha de inicio:</label>
-              <input type="date" class="form-control form-control-sm" id="fechainicio">
-            </div>
-            <div class="mb-3">
-              <label for="precio" class="form-label">Precio:</label>
-              <input type="text" class="form-control form-control-sm" id="precio">
-            </div>
-          </form>
-        </div>
+                <label for="discapacidad" class="form-label">¿Presenta alguna discapacidad?</label>
+                <select id="discapacidad" class="form-select form-select-sm">
+                  <option value="">Seleccione</option>
+                  <option value="Y">Si</option>
+                  <option value="N">No</option>
+                </select>
+              </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
           <button type="button" class="btn btn-primary btn-sm" id="guardar-curso">Guardar</button>
