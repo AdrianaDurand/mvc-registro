@@ -33,8 +33,8 @@ if (isset($_POST['operacion'])){
           <td>{$persona['estado_civil']}</td>
           <td>{$persona['discapacidad']}</td>
           <td>
-            <a href='#' data-idpersona='{$persona['idpersona']}' class='btn btn-danger btn-sm eliminar'><i class='bi bi-trash3-fill'></i></a>
-            <a href='#' data-idpersona='{$persona['idpersona']}' class='btn btn-warning btn-sm editar'><i class='bi bi-pencil-fill'></i></a>
+            <a href='#' data-idpersona='{$persona['idpersona']}' class='btn btn-outline-danger btn-sm eliminar'><i class='bi bi-trash3-fill'></i></a>
+            <a href='#' data-idpersona='{$persona['idpersona']}' class='btn btn-outline-success btn-sm editar'><i class='bi bi-pencil-fill'></i></a>
           </td>
           </tr>
         ";
