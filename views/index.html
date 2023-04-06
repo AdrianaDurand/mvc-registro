@@ -26,8 +26,10 @@
         <div class="row">
           <div class="col-md-6">
             <i class="bi bi-journal-bookmark"></i>
+           <i class="text-decoration-underline">
             <strong>REGISTRO DE PERSONAS</strong>
-          </div>
+          </i>
+        </div>
           <div class="col-md-6 text-end">
             <button class="btn btn-primary btn-sm text-light" id="abrir-modal" data-bs-toggle="modal" data-bs-target="#modal-registro-persona"><i class="bi bi-person-fill-add"></i> Agregar persona</button>
           </div>
@@ -226,19 +228,19 @@
 
       //Al pulsar clic sobre el botón ROJO, se elimine el registro
       // Detectaremos eventos de los objetos creados de manera Asincrona en ...
-      $("#tabla-cursos tbody").on("click", ".eliminar", function(){
-        const idcursoEliminar = $(this).data("idpersona");
+      $("#tabla-personas tbody").on("click", ".eliminar", function(){
+        const idpersonaEliminar = $(this).data("idpersona");
         if (confirm("¿Está seguro de proceder?")){
           $.ajax({
             url: '../controllers/persona.controller.php',
             type: 'POST',
             data: {
               operacion   : 'eliminar',
-              idcurso     : idcursoEliminar
+              idpersona   : idpersonaEliminar
             },
             success: function(result){
               if (result == ""){
-                mostrarCursos();
+                mostrarPersonas();
               }
             }
           });

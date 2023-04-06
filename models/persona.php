@@ -55,10 +55,10 @@ class Persona extends Conexion{
     }
   }
 
-  public function eliminarCurso($idcurso = 0){
+  public function eliminarPersona($idpersona = 0){
     try{
-      $consulta = $this->accesoBD->prepare("CALL spu_cursos_eliminar(?)");
-      $consulta->execute(array($idcurso));
+      $consulta = $this->accesoBD->prepare("CALL spu_eliminar_persona(?)");
+      $consulta->execute(array($idpersona));
     }
     catch(Exception $e){
       die($e->getMesssage());

@@ -74,3 +74,16 @@ BEGIN
 	VALUES (_nombres, _apellidos, _dni, _fecha_nacimiento, _direccion, _ocupacion, _telefono, _email, _estado_civil, _discapacidad);
 END$$ 
 CALL spu_registrar_persona('Mariana','Castilla Lévano','90234019','2000-06-21','Jorge Basadre 498, Lima 27', 'Estudiante', '988021119', 'mariana@gmail.com', 'S','N');
+
+
+-- PROCEDIMIENTO ALMACENADO PARA ELIMINAR PERSONA --
+DELIMITER $$
+CREATE PROCEDURE spu_eliminar_persona(IN _idpersona INT)
+BEGIN
+	UPDATE persona 
+	SET estado = '0' 
+	WHERE idpersona = _idpersona;
+END $$
+
+CALL spu_eliminar_persona();
+SELECT * FROM persona;

@@ -65,7 +65,7 @@ if (isset($_POST['operacion'])){
 }
 
   if($_POST['operacion'] == 'eliminar'){
-    $persona->eliminarCurso($_POST['idcurso']);
+    $persona->eliminarPersona($_POST['idpersona']);
 }
 
 }
