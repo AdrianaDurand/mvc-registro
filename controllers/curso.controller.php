@@ -4,11 +4,11 @@ require_once '../models/persona.php';
 
 if (isset($_POST['operacion'])){
 
-  $curso = new Curso();
+  $persona = new Persona();
 
   if($_POST['operacion'] == 'listar'){
-
-    $datosObtenidos = $curso->listarCursos();
+    
+    $datosObtenidos = $persona->listarPersonas();
 
     // En esta ocación NO enviaremos un objeto JSON, es su lugar el controlador renderizará las filas que necesita el <tbody></tbody>
     //echo json_encode($datosObtenidos);
@@ -17,19 +17,24 @@ if (isset($_POST['operacion'])){
     if ($datosObtenidos){
       $numeroFila = 1;
     // PASO 2: Recorrer todo el objeto
-      foreach($datosObtenidos as $curso){
+      foreach($datosObtenidos as $persona){
     //PASO 3: Ahora construimos las filas
         echo "
           <tr>
           <td>{$numeroFila}</td>
-          <td>{$curso['nombrecurso']}</td>
-          <td>{$curso['especialidad']}</td>
-          <td>{$curso['complejidad']}</td>
-          <td>{$curso['fechainicio']}</td>
-          <td>{$curso['precio']}</td>
+          <td>{$persona['nombres']}</td>
+          <td>{$persona['apellidos']}</td>
+          <td>{$persona['dni']}</td>
+          <td>{$persona['fecha_nacimiento']}</td>
+          <td>{$persona['direccion']}</td>
+          <td>{$persona['ocupacion']}</td>
+          <td>{$persona['telefono']}</td>
+          <td>{$persona['email']}</td>
+          <td>{$persona['estado_civil']}</td>
+          <td>{$persona['discapacidad']}</td>
           <td>
-            <a href='#' data-idcurso='{$curso['idcurso']}' class='btn btn-danger btn-sm eliminar'><i class='bi bi-trash3-fill'></i></a>
-            <a href='#' data-idcurso='{$curso['idcurso']}' class='btn btn-warning btn-sm editar'><i class='bi bi-pencil-fill'></i></a>
+            <a href='#' data-idpersona='{$persona['idpersona']}' class='btn btn-danger btn-sm eliminar'><i class='bi bi-trash3-fill'></i></a>
+            <a href='#' data-idpersona='{$persona['idpersona']}' class='btn btn-warning btn-sm editar'><i class='bi bi-pencil-fill'></i></a>
           </td>
           </tr>
         ";
@@ -51,11 +56,11 @@ if (isset($_POST['operacion'])){
     ];
 
     // Paso2: Enviar el arreglo como parametro del metodo registrar
-    $curso->registrarCurso($datosForm);
+    $persona->registrarCurso($datosForm);
 }
 
   if($_POST['operacion'] == 'eliminar'){
-    $curso->eliminarCurso($_POST['idcurso']);
+    $persona->eliminarCurso($_POST['idcurso']);
 }
 
 }

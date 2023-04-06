@@ -5,7 +5,7 @@ class Conexion{
   //Atributos _conexiones del acceso
   private $host = "localhost";  //Servidor
   private $port = "3306";       //Puerto comunicacion DB
-  private $database = "resgistro"; //Nombre DB
+  private $database = "registro"; //Nombre DB
   private $charset = "UTF8";    //Codificación (idioma)
   private $user = "root";       //Usuario (raíz)
   private $password = "";       //Contraseña
