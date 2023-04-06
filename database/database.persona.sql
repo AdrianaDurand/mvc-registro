@@ -30,3 +30,26 @@ INSERT INTO persona (nombres, apellidos, dni, fecha_nacimiento, direccion, ocupa
 	('Marthina Josefa', 'García Díaz', '40921100', '1996-10-11', 'AV De La Poesia 160 LIMA', 'Docente', '900123889', 'marthinam10@gmail.com', 'S', 'Y'),
 	('Treicy', 'Cahuana Aedo', '78902207', '1989-12-01', 'Plaza 30 de Agosto San Isidro LIMA', 'Ingeniera Civil', '912789667', 'treicycahuana38@gmail.com', 'C', 'N'),
 	('Marthin Gustavo', 'De la Cruz Quiroz', '47890076', '1979-06-27', 'JR San Martin 475 Independencia', 'Obrero', '900278990', 'marthinquiroz123@gmail.com', 'V', 'N');
+	
+
+
+-- PROCEDIMIENTO ALMACENADO PARA LISTAR --
+DELIMITER $$
+CREATE PROCEDURE spu_listar_personas()
+BEGIN
+SELECT	idpersona,
+	nombres,
+	apellidos,
+	dni,
+	fecha_nacimiento,
+	direccion,
+	ocupacion,
+	telefono,
+	email,
+	estado_civil,
+	discapacidad
+FROM persona
+WHERE estado = '1'
+ORDER BY idpersona ASC;
+END $$
+CALL spu_listar_personas();
