@@ -113,7 +113,6 @@
             <div class="mb-3">
               <label for="dni" class="form-label">Digite su DNI:</label>
               <input type="text" class="form-control" id="dni" placeholder="_ _ _ _  _ _ _ _" maxlength="8" required>
-              <div id="mensaje-error" data-bs-target="#modal-error"></div>
             </div>
             <div class="mb-3">
                 <label for="fecha_nacimiento" class="form-label">Ingrese su fecha de nacimiento:</label>
@@ -135,7 +134,7 @@
               <label for="email" class="form-label">Ingrese su correo electrónico:</label>
               <div class="input-group">
               <div class="input-group-text">@</div>
-              <input type="text" class="form-control" id="email" placeholder="nombre@gmail.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+              <input type="text" class="form-control" id="email" placeholder="nombre@gmail.com" pattern=^[a-zA-Z0-9._%+-]+@gmail\.com$ required>
               <div>
                 
               </div>
