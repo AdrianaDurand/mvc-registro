@@ -60,6 +60,8 @@ if (isset($_POST['operacion'])){
       "discapacidad"=> $_POST['discapacidad']
     ];
 
+
+
     // Paso2: Enviar el arreglo como parametro del metodo registrar
     $persona->registrarPersona($datosForm);
 }
@@ -68,4 +70,14 @@ if (isset($_POST['operacion'])){
     $persona->eliminarPersona($_POST['idpersona']);
 }
 
+
+
+
 }
+
+
+
+
+
+
+

@@ -87,3 +87,25 @@ END $$
 
 CALL spu_eliminar_persona();
 SELECT * FROM persona;
+
+-- PROCEDIMIENTO ALMACENADO PARA MODIFICAR PERSONA -- 
+delimiter $$
+create procedure sp_modificar_cliente(
+in _idpersona		int,
+IN _direccion		VARCHAR(60),
+IN _ocupacion		VARCHAR(70),
+IN _telefono		CHAR(9),
+IN _email		VARCHAR(120),
+IN _estado_civil	CHAR(1),
+IN _discapacidad	CHAR(1)
+)
+BEGIN
+	update tb_personas set
+	direccion = _direccion,
+	ocupacion = _ocupacion,
+	telefono = _telefono,
+	email	= _email,
+	estado_civil = _estado_civil,
+	discapacidad = _discapacidad
+	where idpersona = _idpersona;
+end $$
