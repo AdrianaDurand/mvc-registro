@@ -65,7 +65,7 @@ class Persona extends Conexion{
     }
   }
 
-  public function actualizarCurso(){
+  public function actualizarPersona(){
     try{
 
     }

@@ -24,9 +24,7 @@
   </style>
 
 
-
 </head>
-
 <body>
 
   
@@ -37,7 +35,7 @@
         <div class="row">
           <div class="col-md-6">
             <i class="bi bi-journal-bookmark"></i>
-           <i class="text-decoration-underline">
+            <i class="text-decoration-underline">
             <strong>REGISTRO DE PERSONAS</strong>
           </i>
         </div>
@@ -62,7 +60,7 @@
             <col width = "3%"> <!--pcd-->
           </colgroup>
           <thead>
-            <tr  class=".table">
+            <tr>
               <th>
                 <i class="bi bi-list-ol"></i>
               </th>
@@ -106,45 +104,45 @@
           <form id="formulario-personas">
             <div class="mb-3">
               <label for="nombres" class="form-label">Nombres:</label>
-              <input type="text" class="form-control form-control-sm" id="nombres" name="nombres" required>
+              <input type="text" class="form-control form-control-sm" id="nombres" required>
             </div>
             <div class="mb-3">
                 <label for="apellidos" class="form-label">Apellidos:</label>
-                <input type="text" class="form-control form-control-sm" id="apellidos" name="apellidos" required>
+                <input type="text" class="form-control form-control-sm" id="apellidos" required>
             </div>
             <div class="mb-3">
               <label for="dni" class="form-label">Digite su DNI:</label>
-              <input type="text" class="form-control" id="validar-numero" placeholder="_ _ _ _  _ _ _ _" maxlength="9" onblur="validarNumero()" required>
+              <input type="text" class="form-control" id="dni" placeholder="_ _ _ _  _ _ _ _" maxlength="8" required>
               <div id="mensaje-error" data-bs-target="#modal-error"></div>
             </div>
             <div class="mb-3">
                 <label for="fecha_nacimiento" class="form-label">Ingrese su fecha de nacimiento:</label>
-                <input type="date" class="form-control form-control-sm" id="fecha_nacimiento" name="fecha_nacimiento" required>
+                <input type="date" class="form-control form-control-sm" id="fecha_nacimiento" required>
             </div>
             <div class="mb-3">
                 <label for="direccion" class="form-label">Digite su dirección:</label>
-                <input type="text" class="form-control form-control-sm" id="direccion" name="direcciones" required>
+                <input type="text" class="form-control form-control-sm" id="direccion" required>
             </div>
             <div class="mb-3">
                 <label for="ocupacion" class="form-label">Ocupación:</label>
-                <input type="text" class="form-control form-control-sm" id="ocupacion" name="ocupacion" required>
+                <input type="text" class="form-control form-control-sm" id="ocupacion" required>
             </div>
             <div class="mb-3">
                 <label for="telefono" class="form-label">Ingrese su teléfono:</label>
-                <input type="text" class="form-control" id="telefono" placeholder="_ _ _  _ _ _  _ _ _" pattern="\d{9}" name="telefono" required>
+                <input type="text" class="form-control" id="telefono" placeholder="_ _ _  _ _ _  _ _ _" maxlength="9" required>
             </div>
             <form class="mb-3">
               <label for="email" class="form-label">Ingrese su correo electrónico:</label>
               <div class="input-group">
               <div class="input-group-text">@</div>
-              <input type="text" class="form-control" id="email" placeholder="nombre@gmail.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" name="email" required>
+              <input type="text" class="form-control" id="email" placeholder="nombre@gmail.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
               <div>
                 
               </div>
             </div>
             <div class="mb-3">
               <label for="estado_civil" class="form-label">Estado Civil</label>
-              <select id="estado_civil" class="form-select form-select-sm" name="estado_civil" required>
+              <select id="estado_civil" class="form-select form-select-sm" required>
                 <option value="">Seleccione</option>
                 <option value="S">Soltero(a)</option>
                 <option value="C">Casado(a)</option>
@@ -153,7 +151,7 @@
             </div>
             <div class="mb-3">
                 <label for="discapacidad" class="form-label">¿Presenta alguna discapacidad?</label>
-                <select id="discapacidad" class="form-select form-select-sm" name="discapacidad" required>
+                <select id="discapacidad" class="form-select form-select-sm" required>
                   <option value="">Seleccione</option>
                   <option value="D">Si</option>
                   <option value="N">No</option>
@@ -169,23 +167,6 @@
     </div>
   </div>
   
-  <!-- MODAL PARA LOS ERRORES -->
-  <div class="modal" id="modal-error" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Error al introducir el DNI</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>Por favor, ingresa solo números en el campo del DNI.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
   <!-- Fin Zona de modales-->
@@ -255,19 +236,6 @@
       }
 
 
-      function validarNumero(){
-      var numero = document.getElementById("dni").value;
-      var mensajeError = document.getElementById("mensaje-error");
-      if (isNaN(parseFloat(numero))) {
-        mensajeError.innerHTML = "Por favor, ingresa solo números";
-        return false;
-      }
-      mensajeError.innerHTML = "";
-      return true;
-    }
-
-
-
       // Eventos
       $("#guardar-persona").click(registrarPersona);
 
@@ -294,20 +262,12 @@
 
       // Ejecución automática
       mostrarPersonas();
-      validarNumero();
 
     });
 
 
     
   </script>
-  
-
-  
-   
-   
-
-
 
 </body>
 
